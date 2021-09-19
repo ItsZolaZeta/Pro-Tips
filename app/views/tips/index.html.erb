@@ -15,6 +15,9 @@
     <% @tips.each do |tip| %>
       <%= render partial: 'tip_card', locals: { tip: tip } %>
     <% end %>
+    <div class="see-more">
+      <%= paginate @tips %>
+    </div>
   <% else %>
     <p class="no-results mt-5 mb-5">No tips found matching <%= params[:q] %>... :(</p>
   <% end %>

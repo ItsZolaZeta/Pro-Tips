@@ -17,7 +17,7 @@
 
   <div class="card-body">
     <p><%= @tip.body %></p>
-    <p class="text-muted">Created by <%= render partial: 'user_link', locals: { user: @tip.user } %> on <%= @tip.created_at %></p>
+    <p class="text-muted">Created by <%= render partial: 'user_link', locals: { user: @tip.user } %> on <%= @tip.created_at.strftime("%d %b '%y at %R") %></p>
   </div>
 
   <div class="card-body">
@@ -27,7 +27,7 @@
         <blockquote class="blockquote">
           <p class="mb-0"><%= comment.body %></p>
           <footer class="blockquote-footer">
-            Added by <%= render partial: 'user_link', locals: { user: comment.user } %> on <%= comment.created_at %></footer>
+            Added by <%= render partial: 'user_link', locals: { user: comment.user } %> on <%= comment.created_at.strftime("%d %b '%y at %R") %></footer>
         </blockquote>
       <% end %>
     </div>

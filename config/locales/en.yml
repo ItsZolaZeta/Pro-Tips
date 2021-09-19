@@ -30,4 +30,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  signup: 'Sign up'
+  login: 'Log in'
+  home:
+    title: 'Share your programming tips with other developers online!'
+    second: '... or find tips about something:'
+    most_recent: 'Here are the four most recently active tips:'
+
+  helpers: 
+    label:
+      tip:
+        title: 'Title'
+        body: 'Body'
+        user: 'User'
+        update: 'Update Tip'
+        cancel: 'Cancel'
+      user:
+        email: 'Email'
+        name: 'Name'
+        avatar: 'Avatar url'
+        update: 'Update'
+        cancel: 'Cancel'

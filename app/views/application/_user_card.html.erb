@@ -16,6 +16,7 @@
       <p>Most recent tip: <%= link_to user.tips.last.title, tip_path(user.tips.last) %></p>
     <% end %>
     <p>Has created <%= pluralize_tips user.tips %> and made <%= pluralize_comments user.comments %></p>
-    <p class="text-muted">Joined Pro Tips on <%= user.created_at %></p>
+    <p class="text-muted">Has been a member of Pro Tips for <%= time_ago_in_words(user.created_at) %></p>
+    
   </div>
 </div>

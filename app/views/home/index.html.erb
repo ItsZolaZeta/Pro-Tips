@@ -1,9 +1,9 @@
 <p></p>
 
 <div class="jumbotron">
-  <h1 class="display-4">Share your programming tips with other developers online!</h1>
+  <h1 class="display-4"><%= translate('home.title') %></h1>
   <hr class="my-4">
-  <p class="lead">... or find tips about something:</p>
+  <p class="lead"><%= translate('home.second') %></p>
   <p class="lead">
     <%= form_tag tips_path, method: :get do %>
       <div class="form-row">
@@ -19,7 +19,7 @@
   </p>
 </div>
 
-<h3>Here are the four most recently active tips:</h3>
+<h3><%= translate('home.most_recent') %></h3>
 
 <div class="row">
 <% @tips.each do |tip| %>

@@ -30,10 +30,10 @@
 
     <fieldset class="form-group row d-flex flex-row-reverse">
       <div class="col-md-10">
-        <%= form.submit 'Update', class: 'btn btn-primary btn-block mb-2' %>
+        <%= form.submit translate('helpers.label.user.update'), class: 'btn btn-primary btn-block mb-2' %>
       </div>
       <div class="col-md-2">
-        <%= link_to 'Cancel', user_path(@user), class: 'btn btn-light btn-block' %>
+        <%= link_to translate('helpers.label.user.cancel'), user_path(@user), class: 'btn btn-light btn-block' %>
       </div>
     </fieldset>
   <% end %>

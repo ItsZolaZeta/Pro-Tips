@@ -20,12 +20,12 @@ florian = User.create!(email: 'florian@extensionschool.ch', name: 'Florian')
 sara    = User.create!(email: 'sara@extensionschool.ch',    name: 'Sara')
 linda   = User.create!(email: 'linda@extensionschool.ch',   name: 'Linda')
 
-Tip.create!(title: 'Use #name on a class in Ruby',
-            body:  'Using Class.name returns a String representing the name of a class!  E.g. Integer.name returns "Integer" and ApplicationController.name returns "ApplicationController"',
-            user:  florian)
-Tip.create!(title: 'Getting a substring in Ruby',
-            body: 'Use String#[start,length] to return the substring of a String, e.g. "Hello, world"[7,5] => "world"',
-            user:  florian)
+tip1 = Tip.create!(title: 'Use #name on a class in Ruby',
+                   body:  'Using Class.name returns a String representing the name of a class!  E.g. Integer.name returns "Integer" and ApplicationController.name returns "ApplicationController"',
+                   user:  florian)
+tip2 = Tip.create!(title: 'Getting a substring in Ruby',
+                   body: 'Use String#[start,length] to return the substring of a String, e.g. "Hello, world"[7,5] => "world"',
+                   user:  florian)
 Tip.create!(title: 'Going backwards in an Array',
             body:  "It's possible to use negative numbers as backwards indexes in Arrays e.g. [1,2,3,4][-1] => 4",
             user:  florian)
@@ -36,14 +36,15 @@ Tip.create!(title: 'Using ERB in CSS and Sass files',
 Tip.create!(title: 'Substitute a value in a String',
             body:  "String#gsub can be used to replace any substring with another substring in a String, e.g. 'Learn about :language'.gsub(':language', 'JavaScript') => \"Learn about JavaScript\"",
             user:  sara)
-            Tip.create!(title: 'Multi-line Strings using %Q',
-                        body:  percent_q_string,
-                        user:  sara)
+Tip.create!(title: 'Multi-line Strings using %Q',
+            body:  percent_q_string,
+            user:  sara)
 Tip.create!(title: 'Using underscores in numbers',
             body:  "It's pretty cool that underscores can be used to define numbers in Ruby, such as 16_453 or 12_345_678.  It can make big numbers much more readable!",
             user:  sara)
 Tip.create!(title: 'Calculate a number to a power',
-            body:  'Use ** to calculate the number to a particular power, e.g. 2**5 => 32', user: sara)
+            body:  'Use ** to calculate the number to a particular power, e.g. 2**5 => 32', 
+            user: sara)
 
 Tip.create!(title: 'Using rails:secret',
             body:  'Use rails:secret to generate a long secret key for any purpose, not just for a value to use as SECRET_KEY_BASE.',
@@ -57,3 +58,16 @@ Tip.create!(title: 'Organize CSS rules in Sass files well',
 Tip.create!(title: 'Just experiment!',
             body:  "The great thing about writing software is that it's easy to try things out and change them before submitting it for a production deployment.  I've found that taking a break and coming back to a difficult programming problem really helps too.",
             user:  linda)
+
+Comment.create!(body: "This is a good tip.", 
+                user: sara, 
+                tip: tip1)
+Comment.create!(body: "Yes thank you!", 
+                user: linda, 
+                tip: tip1)
+Comment.create!(body: "This is a good tip.", 
+                user: sara, 
+                tip: tip2)
+Comment.create!(body: "Yes thank you!", 
+                user: linda, 
+                tip: tip2)

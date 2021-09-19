@@ -1,0 +1,21 @@
+fr:
+  signup: 'Inscription'
+  login: 'Connexion'
+  home:
+    title: 'Partagez vos astuces de programmation avec des autres developpeurs en ligne !'
+    second: '...ou trouver des conseils sur quelque chose :'
+    most_recent: 'Voici les quatre derniers conseils actifs :'
+  helpers: 
+    label:
+      tip:
+        title: 'Titre'
+        body: 'Corps du texte'
+        user: 'Auteur'
+        update: 'Mettre à jour conseil'
+        cancel: 'Annuler'
+      user:
+        email: 'Email'
+        name: 'Nom et prenom'
+        avatar: 'Avatar url'
+        update: 'Mettre à jour'
+        cancel: 'Annuler'
