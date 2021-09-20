@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+  has_secure_password
+
   paginates_per 6
 end

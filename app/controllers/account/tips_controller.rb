@@ -9,8 +9,10 @@ module Account
   # is because it follows a true resourceful structure, rather than using
   # unusual controller action names, like goals and ideas.
   class TipsController < ApplicationController
+    before_action :ensure_authenticated
+    
     def index
-      @tips = Tip.all.order(updated_at: :desc)
+      @tips = current_user.tips
     end
   end
 end

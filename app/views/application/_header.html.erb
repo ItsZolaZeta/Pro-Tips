@@ -5,7 +5,15 @@
         <h1>Pro Tips</h1>
       <% end %>
       <div class="collapse navbar-collapse d-flex justify-content-end">
-        <%= render partial: 'anonymous_user_header' %>
+        <% if(logged_in?) %>
+          <% if(is_admin?) %>
+            <%= render(partial: 'admin_user_header') %>
+          <% else %>
+            <%= render(partial: 'registered_user_header') %>
+          <% end %>
+        <% else %>
+          <%= render(partial: 'anonymous_user_header') %>
+        <% end %>
       </div>
     </div>
   </nav>

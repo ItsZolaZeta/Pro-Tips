@@ -4,7 +4,9 @@
     <div class="card-body">
       <p>Posted by <%= render partial: 'user_link', locals: { user: tip.user } %></p>
       <p><%= pluralize_comments(tip.comments) %> on this tip.</p>
-      <%= link_to 'Edit tip', edit_tip_path(tip), class: 'btn btn-outline-secondary', role: 'button' %>
+      <% if(can_edit?(tip)) %>
+        <%= link_to 'Edit tip', edit_tip_path(tip), class: 'btn btn-outline-secondary', role: 'button' %>
+      <% end %>
       <%= link_to 'Show more', tip_path(tip), class: 'btn btn-outline-primary', role: 'button' %>
     </div>
   </div>

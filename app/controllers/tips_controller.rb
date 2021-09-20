@@ -1,5 +1,10 @@
 class TipsController < ApplicationController
-  before_action :set_tip, only: [:show, :edit, :update, :destroy]
+
+  include RolesHelper
+
+  before_action :ensure_authenticated,        only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_tip,                     only: [:show, :edit, :update, :destroy]
+  before_action :ensure_auth_to_edit_delete,  only: [:edit, :update, :destroy]
 
   def index
     # @tips = Tip.where('title LIKE ?', "%#{params[:q]}%").or(
@@ -22,6 +27,7 @@ class TipsController < ApplicationController
 
   def create
     @tip = Tip.new(tip_params)
+    @tip.user = current_user
 
     respond_to do |format|
       if @tip.save
@@ -62,6 +68,10 @@ class TipsController < ApplicationController
 
     def set_tip
       @tip = Tip.find(params[:id])
+    end
+
+    def ensure_auth_to_edit_delete
+      redirect_to(tips_path) unless(can_edit?(@tip))  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

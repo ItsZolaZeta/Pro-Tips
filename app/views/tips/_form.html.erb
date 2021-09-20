@@ -18,16 +18,16 @@
     </div>
   </fieldset>
 
-  <fieldset class="form-group row">
+  <%# <fieldset class="form-group row">
     <%= form.label translate('helpers.label.tip.user'), for: 'tip_user_id', class: 'col-md-2 col-form-label' %>
-    <div class="col-md-10">
+    <%# <div class="col-md-10">
       <%= form.collection_select(:user_id, User.all, :id, :name, {}, { class: 'form-control' }) %>
-    </div>
-  </fieldset>
+    <%# </div>
+  </fieldset> %>
 
   <div class="form-group row d-flex flex-row-reverse">
     <div class="col-md-10">
-      <%= form.submit translate('helpers.label.tip.update'), class: 'btn btn-primary btn-block mb-2' %>
+      <%= form.submit class: 'btn btn-primary btn-block mb-2' %>
     </div>
     <div class="col-md-2">
       <%= link_to translate('helpers.label.tip.cancel'), account_path, class: 'btn btn-light btn-block' %>

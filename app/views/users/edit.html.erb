@@ -28,6 +28,13 @@
       </div>
     </fieldset>
 
+    <div class="form-group row">
+      <%= form.label(:role, class: 'col-md-2 col-form-label') %>
+      <div class="col-md-10">
+        <%= form.select(:role, %w(registered admin), {}, class: 'form-control') %>
+      </div>
+    </div>
+
     <fieldset class="form-group row d-flex flex-row-reverse">
       <div class="col-md-10">
         <%= form.submit translate('helpers.label.user.update'), class: 'btn btn-primary btn-block mb-2' %>

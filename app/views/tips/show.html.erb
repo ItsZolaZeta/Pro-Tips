@@ -10,9 +10,11 @@
 <div class="card mt-4">
   <div class="card-header d-flex justify-content-start">
     <h3><%= @tip.title %></h3>
-    <div>
-      <%= link_to 'Edit', edit_tip_path(@tip), class: 'btn btn-outline-secondary ml-3' %>
-    </div>
+    <% if(can_edit?(@tip)) %>
+      <div>
+        <%= link_to 'Edit', edit_tip_path(@tip), class: 'btn btn-outline-secondary ml-3' %>
+      </div>
+    <% end %>
   </div>
 
   <div class="card-body">
@@ -31,20 +33,22 @@
         </blockquote>
       <% end %>
     </div>
-    <p class="text-muted">Add your own comment</p>
-    <%=
-      # Notice how #build is used here to instantiate a new empty Comment to be
-      # used in the form.  #build is a convenient way to create an empty
-      # associated model instance for situations like this, instead of using
-      # Comment.new within TipsController#show to create an empty instance.
-      form_for([@tip, @tip.comments.build]) do |form|
-    %>
-      <fieldset>
-        <%= form.text_area(:body, class: 'form-control mb-2', rows: 5) %>
-      </fieldset>
-      <fieldset class="d-flex justify-content-end">
-        <%= form.submit class: 'btn btn-primary' %>
-      </fieldset>
+    <% if(logged_in?) %>
+      <p class="text-muted">Add your own comment</p>
+      <%=
+        # Notice how #build is used here to instantiate a new empty Comment to be
+        # used in the form.  #build is a convenient way to create an empty
+        # associated model instance for situations like this, instead of using
+        # Comment.new within TipsController#show to create an empty instance.
+        form_for([@tip, @tip.comments.build]) do |form|
+      %>
+        <fieldset>
+          <%= form.text_area(:body, class: 'form-control mb-2', rows: 5) %>
+        </fieldset>
+        <fieldset class="d-flex justify-content-end">
+          <%= form.submit class: 'btn btn-primary' %>
+        </fieldset>
+      <% end %>
     <% end %>
   </div>
 </div>

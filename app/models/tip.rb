@@ -12,6 +12,7 @@ class Tip < ApplicationRecord
   scope :body_contains,           ->(term) { where('body LIKE ?', "%#{term}%") } 
   scope :search,                  ->(search_term) { title_contains(search_term).or(body_contains(search_term)) }
   scope :most_new,                -> { order(updated_at: :desc).limit(4) }
+  scope :creator,                 ->(id) { where("user_id = #{id}") }
 
   paginates_per 8
 
