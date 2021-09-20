@@ -24,12 +24,13 @@
 
   <div class="card-body">
     <h3>Comments</h3>
-    <div class="m-3">
+    <div class="m-3" id="commentsList">
       <% @tip.comments.order(created_at: :asc).each do |comment| %>
         <blockquote class="blockquote">
           <p class="mb-0"><%= comment.body %></p>
           <footer class="blockquote-footer">
-            Added by <%= render partial: 'user_link', locals: { user: comment.user } %> on <%= comment.created_at.strftime("%d %b '%y at %R") %></footer>
+            Added by <%= render partial: 'user_link', locals: { user: comment.user } %> on <%= comment.created_at.strftime("%d %b '%y at %R") %>
+          </footer>
         </blockquote>
       <% end %>
     </div>
@@ -40,7 +41,7 @@
         # used in the form.  #build is a convenient way to create an empty
         # associated model instance for situations like this, instead of using
         # Comment.new within TipsController#show to create an empty instance.
-        form_for([@tip, @tip.comments.build]) do |form|
+        form_for([@tip, @tip.comments.build], remote: true) do |form|
       %>
         <fieldset>
           <%= form.text_area(:body, class: 'form-control mb-2', rows: 5) %>

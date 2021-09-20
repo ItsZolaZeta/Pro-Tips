@@ -10,17 +10,18 @@ class CommentsController < ApplicationController
     # Needs to be changed: this always sets the User for a Comment to the first
     # User in the database, _not_ the User that POSTed the Comment. 
     @comment.user = current_user
+    @comment.save!
 
-    respond_to do |format|
-      # In these format calls, the flash message is being passed directly to
-      # redirect_to().  It's a caonvenient way of setting a flash notice or
-      # alert without referencing the flash Hash explicitly.
-      if @comment.save
-        format.html { redirect_to @tip, notice: 'Comment was successfully created.' }
-      else
-        format.html { redirect_to @tip, alert: 'Unable to create comment.' }
-      end
-    end
+    # respond_to do |format|
+    #   # In these format calls, the flash message is being passed directly to
+    #   # redirect_to().  It's a caonvenient way of setting a flash notice or
+    #   # alert without referencing the flash Hash explicitly.
+    #   if @comment.save
+    #     format.html { redirect_to @tip, notice: 'Comment was successfully created.' }
+    #   else
+    #     format.html { redirect_to @tip, alert: 'Unable to create comment.' }
+    #   end
+    # end
   end
 
   private

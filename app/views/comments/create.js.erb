@@ -1,0 +1,9 @@
+var comment = {
+    'date': '<%= @comment.created_at.strftime("%d %b %y at %R") %>',
+    'user': '<%= @comment.user.name %>',
+    'body': '<%= @comment.body %>',
+    'href': '<%= user_path(@comment.user) %>',
+    'avatar': '<%= @comment.user.avatar_url %>'
+};
+
+Comments.displayComment(comment);

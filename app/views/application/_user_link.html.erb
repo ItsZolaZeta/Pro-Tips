@@ -1,3 +1,7 @@
 <%= link_to user_path(user) do %>
-  <%= image_tag default_avatar(user), class: 'avatar-xs' %><%= user.name %>
+  <% if user.avatar.present? %>
+    <%= image_tag user.avatar_url, class: 'avatar-xs' %><%= user.name %>
+  <% else %> 
+    <%= image_tag default_avatar(user), class: 'avatar-xs' %><%= user.name %>
+  <% end  %>
 <% end %>
