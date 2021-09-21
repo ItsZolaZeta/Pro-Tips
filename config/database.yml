@@ -27,4 +27,6 @@ production:
   pool: 5
   username: protips
   password: secret
+
+  #encrypt in env vars
   
