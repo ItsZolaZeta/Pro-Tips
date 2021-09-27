@@ -7,7 +7,7 @@ module ApplicationHelper
 
 
   def default_avatar(user)
-    if user.name.present?
+    # if user.name.present?
       # if user.name[0].downcase < 'h'
       #   AVATAR_1
       # elsif user.name[0].downcase < 'n'
@@ -17,14 +17,12 @@ module ApplicationHelper
       # else
       #   AVATAR_CONE
       # end
-      case(user.name[0].downcase)
-      when ('0'..'h') then AVATAR_1
-      when ('h'..'n') then AVATAR_2
-      when ('n'..'u') then AVATAR_3
-      else AVATAR_4
-      end
-    else
-      AVATAR_1
+    case(user.name[0].downcase)
+    when ('0'..'h') then AVATAR_1
+    when ('h'..'n') then AVATAR_2
+    when ('n'..'u') then AVATAR_3
+    when ('v'..'z') then AVATAR_4
+    else AVATAR_1
     end
   end
 

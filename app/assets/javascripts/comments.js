@@ -33,4 +33,7 @@ Comments.displayComment = function(comment) {
 
     var comments = document.getElementById('commentsList');
     comments.appendChild(blockquote);
+
+    var textarea = document.getElementById('comment_body');
+    textarea.value = "";
 };

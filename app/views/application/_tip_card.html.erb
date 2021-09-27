@@ -6,6 +6,7 @@
       <p><%= pluralize_comments(tip.comments) %> on this tip.</p>
       <% if(can_edit?(tip)) %>
         <%= link_to 'Edit tip', edit_tip_path(tip), class: 'btn btn-outline-secondary', role: 'button' %>
+        <%= link_to 'Delete', tip_path(tip), method: :delete, remote: true, class: 'btn btn-outline-danger', role: 'button' %>
       <% end %>
       <%= link_to 'Show more', tip_path(tip), class: 'btn btn-outline-primary', role: 'button' %>
     </div>
